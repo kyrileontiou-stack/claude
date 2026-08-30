@@ -1,0 +1,486 @@
+<title>Thirty Videos for Kyri Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+
+<style>
+  :root {
+    --paper:      #FBFBF9;
+    --surface:    #FFFFFF;
+    --surface-2:  #F4F6F4;
+    --ink:        #121815;
+    --ink-2:      #3D4842;
+    --muted:      #6E7A73;
+    --rule:       #E2E7E3;
+    --rule-firm:  #CBD3CD;
+    --goal:       #0F6E4F;
+    --goal-soft:  #E6F2EC;
+    --pain:       #B4460F;
+    --pain-soft:  #FAEDE4;
+    --shadow:     0 1px 2px rgba(18,24,21,.05), 0 8px 24px -18px rgba(18,24,21,.28);
+  }
+  :root:not([data-theme="light"]) { color-scheme: light; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --paper:#0E1311; --surface:#151C19; --surface-2:#1B2320;
+      --ink:#E9EFEB; --ink-2:#B7C3BC; --muted:#8A968F;
+      --rule:#262F2B; --rule-firm:#3A4640;
+      --goal:#54C79A; --goal-soft:#12291F;
+      --pain:#F0885A; --pain-soft:#2C1A12;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -18px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper:#0E1311; --surface:#151C19; --surface-2:#1B2320;
+    --ink:#E9EFEB; --ink-2:#B7C3BC; --muted:#8A968F;
+    --rule:#262F2B; --rule-firm:#3A4640;
+    --goal:#54C79A; --goal-soft:#12291F;
+    --pain:#F0885A; --pain-soft:#2C1A12;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -18px rgba(0,0,0,.8);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 16.5px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 28px 96px; }
+
+  h1, h2, h3, .disp {
+    font-family: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700; letter-spacing: -0.018em; text-wrap: balance; margin: 0;
+  }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+
+  header.masthead {
+    border-bottom: 1px solid var(--rule-firm);
+    padding: 64px 0 34px; margin-bottom: 40px;
+  }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace; font-size: 11.5px; font-weight: 500;
+    letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); margin: 0 0 18px;
+  }
+  .eyebrow span { color: var(--goal); }
+  h1 {
+    font-size: clamp(38px, 6.4vw, 64px); line-height: 1.02;
+    font-weight: 800; letter-spacing: -0.032em; max-width: 15ch;
+  }
+  .standfirst {
+    margin: 22px 0 0; max-width: 62ch; font-size: 19px; line-height: 1.55; color: var(--ink-2);
+  }
+  .statbar {
+    display: flex; flex-wrap: wrap; gap: 10px 44px;
+    margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--rule);
+  }
+  .stat { display: flex; flex-direction: column; gap: 3px; }
+  .stat b {
+    font-family: "Bricolage Grotesque", sans-serif; font-size: 26px; font-weight: 700;
+    line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums;
+  }
+  .stat small {
+    font-family: "IBM Plex Mono", monospace; font-size: 10.5px;
+    letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted);
+  }
+
+  .callout {
+    background: var(--goal-soft);
+    border-left: 3px solid var(--goal);
+    border-radius: 0 4px 4px 0;
+    padding: 17px 22px; margin: 34px 0 0;
+    font-size: 15.5px; line-height: 1.55; color: var(--ink-2);
+    max-width: 74ch;
+  }
+  .callout strong { color: var(--ink); }
+
+  section { margin-top: 60px; }
+
+  .sec-head {
+    display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+    border-bottom: 2px solid var(--ink); padding-bottom: 10px; margin-bottom: 8px;
+  }
+  .sec-head h2 { font-size: 23px; letter-spacing: -0.022em; }
+  .sec-head .count {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--goal);
+  }
+  .sec-sub {
+    margin: 12px 0 22px; font-size: 14.5px; color: var(--muted); max-width: 70ch;
+  }
+
+  .ideas { display: flex; flex-direction: column; gap: 12px; }
+
+  .idea {
+    background: var(--surface); border: 1px solid var(--rule); border-radius: 4px;
+    box-shadow: var(--shadow); padding: 18px 22px 19px;
+    display: grid; grid-template-columns: 34px 1fr; gap: 0 14px;
+  }
+  .num {
+    font-family: "IBM Plex Mono", monospace; font-size: 12.5px; font-weight: 600;
+    font-variant-numeric: tabular-nums; color: var(--goal); padding-top: 3px;
+  }
+  .idea h3 { font-size: 18px; line-height: 1.25; margin: 0 0 8px; }
+  .hook {
+    margin: 0 0 10px; padding-left: 13px; border-left: 2px solid var(--goal);
+    font-size: 16px; line-height: 1.45; font-style: italic; color: var(--ink);
+  }
+  .idea p.body { margin: 0; font-size: 14.8px; line-height: 1.55; color: var(--ink-2); }
+
+  .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .chip {
+    font-family: "IBM Plex Mono", monospace; font-size: 10.5px; font-weight: 500;
+    letter-spacing: 0.05em; padding: 3px 8px; border-radius: 3px;
+    border: 1px solid transparent; white-space: nowrap;
+  }
+  .chip.faceless { background: var(--goal-soft); color: var(--goal); }
+  .chip.oncam    { background: var(--pain-soft); color: var(--pain); }
+  .chip.fmt      { background: var(--surface-2); color: var(--ink-2); }
+  .chip.proven   { background: transparent; border-color: var(--goal); color: var(--goal); }
+
+  footer.method {
+    margin-top: 72px; padding-top: 22px; border-top: 1px solid var(--rule-firm);
+    font-size: 14px; line-height: 1.6; color: var(--muted); max-width: 68ch;
+  }
+  footer.method h4 {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2); margin: 0 0 9px;
+  }
+  footer.method p { margin: 0 0 10px; }
+
+  :focus-visible { outline: 2px solid var(--goal); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+  @media (max-width: 620px) {
+    .idea { grid-template-columns: 1fr; gap: 6px; }
+    .num { padding-top: 0; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">Kyri Media &middot; Shot list &middot; <span>30 videos</span> &middot; Aug 2026</p>
+    <h1>Thirty Videos for Kyri Media</h1>
+    <p class="standfirst">
+      Six pillars, thirty videos, every one built on a goal or struggle agents actually voiced on
+      your August calls. Each has the hook written &mdash; the spoken first line, which is the only
+      part that decides whether the rest gets watched.
+    </p>
+    <div class="statbar">
+      <div class="stat"><b>21</b><small>Faceless</small></div>
+      <div class="stat"><b>9</b><small>Need you on camera</small></div>
+      <div class="stat"><b>6</b><small>Content pillars</small></div>
+      <div class="stat"><b>15&nbsp;wks</b><small>At 2 posts a week</small></div>
+    </div>
+    <p class="callout">
+      <strong>Weighted deliberately toward faceless.</strong> Your Aug 19 content sync named the
+      real bottleneck: you aren&rsquo;t recording on-camera content, so the team pivoted to faceless,
+      reusable formats. Twenty-one of these thirty need no face at all &mdash; screen recordings,
+      analytics, montages, text-over-footage. The nine that do need you are grouped last, so you
+      can shoot them in a single session when you&rsquo;re ready.
+    </p>
+  </header>
+
+  <section>
+    <div class="sec-head"><h2>The system</h2><span class="count">01&ndash;06</span></div>
+    <p class="sec-sub">
+      Answers the single most-voiced want on every call: get it done in about two hours a month.
+      Eight of nine agents raised time as the blocker before anything else.
+    </p>
+    <div class="ideas">
+
+      <article class="idea"><div class="num">01</div><div>
+        <h3>Two hours a month, eight videos</h3>
+        <p class="hook">&ldquo;This is a full month of content being filmed. Watch the clock in the corner.&rdquo;</p>
+        <p class="body">Film a real batch day start to finish: teleprompter on the tripod, outfit changes between takes, eight scripts back to back. Put a running timer on screen. Nobody believes the two-hour claim until they watch it happen.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Over-the-shoulder</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">02</div><div>
+        <h3>What eight scripts look like before you shoot</h3>
+        <p class="hook">&ldquo;Most agents open the camera with no plan. Here&rsquo;s what&rsquo;s on the page before we press record.&rdquo;</p>
+        <p class="body">Screen-record the actual script doc &mdash; hooks, beats, the caption already written underneath each one. Scroll slowly. The organisation is the product; showing it sells the service better than describing it.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Screen recording</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">03</div><div>
+        <h3>The teleprompter setup that costs nothing</h3>
+        <p class="hook">&ldquo;You already own everything you need. Phone, tripod, free app. That&rsquo;s the whole rig.&rdquo;</p>
+        <p class="body">Hands-only build video. Removes the &ldquo;I need better equipment&rdquo; stall that Harry and Kimberly both raised, and quietly positions you as the people who make it easy rather than the people who sell gear.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Hands / tabletop</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">04</div><div>
+        <h3>Your camera roll is full and your feed is empty</h3>
+        <p class="hook">&ldquo;She owns two cameras, two phones and a tripod. She hasn&rsquo;t posted in six weeks.&rdquo;</p>
+        <p class="body">Kimberly&rsquo;s exact situation, anonymised. The footage is never the problem &mdash; assembly is. Name the bottleneck out loud and a whole segment of agents will recognise themselves in it.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Text over b-roll</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">05</div><div>
+        <h3>One shoot, thirty posts</h3>
+        <p class="hook">&ldquo;This is one recording session. This is everything we got out of it.&rdquo;</p>
+        <p class="body">Screen-record the editing timeline fanning one session out into a month of posts across four platforms. Shows leverage, which is the thing agents can&rsquo;t picture and the reason the price stops feeling like a price.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Timeline / screen</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">06</div><div>
+        <h3>The thirty-minute call that builds a whole calendar</h3>
+        <p class="hook">&ldquo;Once a month we get on a call and mine your last four weeks for fifteen topics.&rdquo;</p>
+        <p class="body">Walk through the topic-mining process you pitched Ira &mdash; turning real meetings, listings and client questions into a content calendar. Sells the strategy layer, which is exactly what separates you from an intern.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Screen / process</span></div>
+      </div></article>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Proof</h2><span class="count">07&ndash;12</span></div>
+    <p class="sec-sub">
+      Six of nine agents pushed back on price. Not one of them argued with a screenshot. This is
+      your weakest-covered pillar and your highest-leverage one.
+    </p>
+    <div class="ideas">
+
+      <article class="idea"><div class="num">07</div><div>
+        <h3>Eleven leads in seven days</h3>
+        <p class="hook">&ldquo;This is one client&rsquo;s inbox after a single week. He isn&rsquo;t technical and he has no funnel.&rdquo;</p>
+        <p class="body">Michael&rsquo;s week as a receipt: analytics screenshot, DM screenshots, dates visible. Krystal already pulled these for the website &mdash; they work harder as a post than as a testimonial block nobody scrolls to.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Screenshot proof</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">08</div><div>
+        <h3>Guess the view count</h3>
+        <p class="hook">&ldquo;One of these did four hundred views. The other did ten thousand. Guess which, then I&rsquo;ll tell you why.&rdquo;</p>
+        <p class="body">Frank&rsquo;s question format, which pulled 36 comments on nothing but curiosity. Two real thumbnails, public commitment in the comments, reveal in a follow-up post. Two pieces of content from one idea, and the comment list is qualified.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip proven">Proven &middot; 36 comments</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">09</div><div>
+        <h3>$1,500 a month versus one Zillow lead</h3>
+        <p class="hook">&ldquo;She was paying $450 a month for leads that only ever wanted land.&rdquo;</p>
+        <p class="body">Put the arithmetic on screen: portal spend, average commission, how many closings cover a quarter. Agents keep asking for the ROI case &mdash; give them the version they can run on their own numbers instead of a testimonial.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Numbers on screen</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">10</div><div>
+        <h3>Ninety-five thousand views in one week</h3>
+        <p class="hook">&ldquo;Thirty-five videos. One week. Here&rsquo;s the dashboard.&rdquo;</p>
+        <p class="body">Your Aug 16&ndash;21 roster numbers, aggregated. Scale is its own proof &mdash; it answers the unspoken &ldquo;are you a real company or one guy with a laptop&rdquo; that sits underneath Ira&rsquo;s intern question.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Analytics</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">11</div><div>
+        <h3>The metric that isn&rsquo;t views</h3>
+        <p class="hook">&ldquo;Ten thousand views and zero calls means you measured the wrong thing.&rdquo;</p>
+        <p class="body">Walk the real chain: views to profile visits to DMs to booked calls. Positions you as the operator who knows the difference, and pre-frames every future report you send a client.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Explainer / screen</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">12</div><div>
+        <h3>She posted nothing last week and still got found</h3>
+        <p class="hook">&ldquo;Zero posts. Eighty profile visits. That&rsquo;s old content still working.&rdquo;</p>
+        <p class="body">Laura&rsquo;s week. The compounding argument, which is the only honest answer to &ldquo;what happens when I stop paying&rdquo; &mdash; and the strongest counter to portal leads, which vanish the day the invoice does.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Analytics</span></div>
+      </div></article>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>The burned agent</h2><span class="count">13&ndash;17</span></div>
+    <p class="sec-sub">
+      A third of your pipeline has already paid someone and been disappointed. Naming their exact
+      scar before they mention it is the fastest trust you can buy.
+    </p>
+    <div class="ideas">
+
+      <article class="idea"><div class="num">13</div><div>
+        <h3>Why your last video company sent you the wrong leads</h3>
+        <p class="hook">&ldquo;Your scripts were written by someone who&rsquo;s never been to your town. That&rsquo;s why the leads were useless.&rdquo;</p>
+        <p class="body">Erika&rsquo;s failure mode, diagnosed. Non-local writers produce generic content, generic content attracts out-of-area strangers, and those never convert after a showing. Then show what a locally-researched script looks like instead.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Teardown</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">14</div><div>
+        <h3>Four questions to ask before you wire anyone money</h3>
+        <p class="hook">&ldquo;Ask these four things and you&rsquo;ll never repeat the six-thousand-dollar mistake.&rdquo;</p>
+        <p class="body">Who writes the scripts and where do they live. What happens to the footage if you quit. What&rsquo;s the actual monthly time ask. What do you measure. Genuinely useful even to agents who never hire you &mdash; which is why it travels.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">List / carousel</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">15</div><div>
+        <h3>The $20,000 renewal</h3>
+        <p class="hook">&ldquo;Six months in, they asked her for twenty grand. She walked, and hasn&rsquo;t posted since.&rdquo;</p>
+        <p class="body">The renewal ambush, told as a short story. Ends on the real cost: not the money, the two years of silence afterwards. Sets up your three-month term as the answer without you having to pitch it.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Story / text on b-roll</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">16</div><div>
+        <h3>Everyone posts their wins. Here&rsquo;s an account that stalled.</h3>
+        <p class="hook">&ldquo;This client did two to four thousand views a month. That&rsquo;s not a good number and I&rsquo;m not going to pretend it is.&rdquo;</p>
+        <p class="body">Ellen and Leonard, anonymised &mdash; what went wrong and what you changed. The riskiest video here and the one most likely to convert a sceptic, because nobody in this category ever shows a flat account.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Analytics / candid</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">17</div><div>
+        <h3>The client who almost quit</h3>
+        <p class="hook">&ldquo;A client told us his videos weren&rsquo;t worth what he was paying. He was right.&rdquo;</p>
+        <p class="body">Brian&rsquo;s complaint and what you rebuilt because of it &mdash; the new template library, client-branded colours, the split-screen and pinch formats. Show the before and after side by side. Complaint into visible product change is the most credible story you own.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Before / after</span></div>
+      </div></article>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Teardowns</h2><span class="count">18&ndash;23</span></div>
+    <p class="sec-sub">
+      Four agents described the sameness problem in their own words. These are the shareable ones
+      &mdash; mildly insulting, completely true, and cheap to produce.
+    </p>
+    <div class="ideas">
+
+      <article class="idea"><div class="num">18</div><div>
+        <h3>Why every agent&rsquo;s video looks identical</h3>
+        <p class="hook">&ldquo;Market update. Just listed. Five tips for first-time buyers. You&rsquo;ve made this video. So has everyone in your market.&rdquo;</p>
+        <p class="body">Montage the three default templates back to back until it&rsquo;s uncomfortable, then show the alternative for each. Kaui and Maura both described being trapped in exactly these formats.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Montage / teardown</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">19</div><div>
+        <h3>&ldquo;Just listed&rdquo; is not a video</h3>
+        <p class="hook">&ldquo;Nobody outside your office cares that you listed a house. Here&rsquo;s the version they&rsquo;d actually watch.&rdquo;</p>
+        <p class="body">Take one real listing and cut it three ways &mdash; the announcement nobody watches, the story of the sale, and the smart-home POV concept you pitched Kaui. Same property, three outcomes.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Three-way cut</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">20</div><div>
+        <h3>Rate the hook</h3>
+        <p class="hook">&ldquo;Five real agent videos. I&rsquo;m scoring the first three seconds of each one.&rdquo;</p>
+        <p class="body">Pull five hooks from public agent accounts, score them out of ten, rewrite the worst live on screen. Repeatable weekly if it lands, and every rewrite is a free demonstration of the skill you sell.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Screen / series</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">21</div><div>
+        <h3>Slideshow versus this</h3>
+        <p class="hook">&ldquo;Left is the photo slideshow every agent posts. Right is the same photos, three effects later.&rdquo;</p>
+        <p class="body">Split-screen the old style against the pinch-and-pan treatment. The exact upgrade you built for Brian &mdash; and the clearest possible answer to an agent who thinks their photographer&rsquo;s video add-on is the same product.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Split screen</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">22</div><div>
+        <h3>What luxury content gets wrong</h3>
+        <p class="hook">&ldquo;Fast cuts and trending audio will cost you the $1.7 million listing.&rdquo;</p>
+        <p class="body">Ben&rsquo;s objection, made into a thesis: pace, music, framing and language all change at the top of the market. Five agents on your August calls were chasing luxury &mdash; this is the video that tells them you understand the difference.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Side-by-side</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">23</div><div>
+        <h3>Content that wins listings versus content that attracts buyers</h3>
+        <p class="hook">&ldquo;If you want sellers, stop making buyer content. They&rsquo;re not the same videos.&rdquo;</p>
+        <p class="body">Two columns, concrete examples in each. Winning listings was the second-most-common goal on your calls, and almost every agent is unknowingly producing buyer content while asking for sellers.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Comparison</span></div>
+      </div></article>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>The reluctant agent</h2><span class="count">24&ndash;27</span></div>
+    <p class="sec-sub">
+      Camera fear came up before price for Maura and Tara. Almost nobody in your category addresses
+      it directly, which makes this near-uncontested ground.
+    </p>
+    <div class="ideas">
+
+      <article class="idea"><div class="num">24</div><div>
+        <h3>Three clients who&rsquo;ve never shown their face</h3>
+        <p class="hook">&ldquo;You don&rsquo;t have to be on camera. Three of my clients never are.&rdquo;</p>
+        <p class="body">B-roll with voiceover, photo walkthroughs, text over footage. Show the actual posts and the actual numbers. Removes the objection that quietly kills deals before price is ever discussed.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Montage</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">25</div><div>
+        <h3>Four shots you can film without saying a word</h3>
+        <p class="hook">&ldquo;Walking up to the door. Keys on the counter. Sign going in. Door closing. That&rsquo;s a video.&rdquo;</p>
+        <p class="body">A shot list the camera-shy agent can execute this afternoon. Genuinely useful standalone, and it gets people producing footage &mdash; which is the first step toward hiring someone to do something with it.</p>
+        <div class="meta"><span class="chip faceless">Faceless</span><span class="chip fmt">Shot list</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">26</div><div>
+        <h3>The one-take myth</h3>
+        <p class="hook">&ldquo;That agent you think is a natural? That was take nine.&rdquo;</p>
+        <p class="body">Stack the outtakes before the clean take. Directly targets the belief that being good on camera is a personality trait you either have or don&rsquo;t &mdash; the belief keeping Maura, who speaks publicly for a living, off video entirely.</p>
+        <div class="meta"><span class="chip oncam">On camera</span><span class="chip fmt">Outtakes</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">27</div><div>
+        <h3>What to do with your hands</h3>
+        <p class="hook">&ldquo;Everyone&rsquo;s first video problem isn&rsquo;t the script. It&rsquo;s their hands.&rdquo;</p>
+        <p class="body">Short, funny, physical. The kind of small practical fix that gets saved and sent to a colleague, and one of the few videos here that works as pure entertainment while still being about your service.</p>
+        <div class="meta"><span class="chip oncam">On camera</span><span class="chip fmt">Short / comedic</span></div>
+      </div></article>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Point of view</h2><span class="count">28&ndash;30</span></div>
+    <p class="sec-sub">
+      The ones that need your face and your opinion. Shoot all three in one session &mdash; they&rsquo;re
+      the same setup and the same energy.
+    </p>
+    <div class="ideas">
+
+      <article class="idea"><div class="num">28</div><div>
+        <h3>Your referrals are a ceiling, not a moat</h3>
+        <p class="hook">&ldquo;Twenty-one years in business, twenty-eight thousand people in her Facebook group, and strangers still can&rsquo;t find her.&rdquo;</p>
+        <p class="body">Kaui&rsquo;s situation as the opening image. Referral businesses feel safe and grow linearly; they cap the moment the sphere saturates. Aim it at fifteen-to-twenty-year veterans &mdash; the ones with budget.</p>
+        <div class="meta"><span class="chip oncam">On camera</span><span class="chip fmt">Opinion</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">29</div><div>
+        <h3>The three platforms that actually matter</h3>
+        <p class="hook">&ldquo;TikTok brings you strangers. Facebook keeps your sphere warm. YouTube gets you found on Google. Everything else is optional.&rdquo;</p>
+        <p class="body">Your platform thesis from the Ira call, published in full. Giving away real strategy is what the credentialed sceptic &mdash; the one asking &ldquo;why not just hire an intern&rdquo; &mdash; needs to see before they&rsquo;ll book.</p>
+        <div class="meta"><span class="chip oncam">On camera</span><span class="chip fmt">Thesis</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">30</div><div>
+        <h3>Why we don&rsquo;t do month to month</h3>
+        <p class="hook">&ldquo;People ask if they can try one month. No &mdash; and here&rsquo;s the honest reason.&rdquo;</p>
+        <p class="body">Organic compounds; one month proves nothing and sets everyone up to fail. Defending your own terms in public converts the price objection from a negotiation into a standard, and it&rsquo;s the answer Maura, Harry and Tara all needed to hear before they stalled.</p>
+        <div class="meta"><span class="chip oncam">On camera</span><span class="chip fmt">Opinion</span></div>
+      </div></article>
+
+    </div>
+  </section>
+
+  <footer class="method">
+    <h4>How to run this</h4>
+    <p>
+      At two posts a week this is roughly fifteen weeks of content. Don&rsquo;t shoot it in order &mdash;
+      lead with the Proof pillar (07&ndash;12), because price is your second-biggest objection and
+      currently your thinnest content coverage. The assets for 07, 10 and 12 already exist in
+      Krystal&rsquo;s screenshots and the Aug 16&ndash;21 report.
+    </p>
+    <p>
+      Numbers 08, 18 and 20 are the most likely to travel, and 16 and 17 are the most likely to
+      convert someone who has already been burned. Number 16 carries real risk &mdash; publishing a
+      flat account &mdash; so decide deliberately rather than by default.
+    </p>
+    <p>
+      Sourced from nine agent discovery calls (Aug 20&ndash;27), the Aug 24 weekly report, the Aug 27
+      retention meeting and the Aug 19 content sync. Client names here are for your team&rsquo;s
+      reference &mdash; anonymise them before anything is published.
+    </p>
+  </footer>
+
+</div>
