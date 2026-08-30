@@ -1,0 +1,375 @@
+<title>Format Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+
+<style>
+  :root {
+    --paper:#FBFBF9; --surface:#FFFFFF; --surface-2:#F4F6F4;
+    --ink:#121815; --ink-2:#3D4842; --muted:#6E7A73;
+    --rule:#E2E7E3; --rule-firm:#CBD3CD;
+    --goal:#0F6E4F; --goal-soft:#E6F2EC;
+    --pain:#B4460F; --pain-soft:#FAEDE4;
+    --shadow: 0 1px 2px rgba(18,24,21,.05), 0 8px 24px -18px rgba(18,24,21,.28);
+  }
+  :root:not([data-theme="light"]) { color-scheme: light; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --paper:#0E1311; --surface:#151C19; --surface-2:#1B2320;
+      --ink:#E9EFEB; --ink-2:#B7C3BC; --muted:#8A968F;
+      --rule:#262F2B; --rule-firm:#3A4640;
+      --goal:#54C79A; --goal-soft:#12291F;
+      --pain:#F0885A; --pain-soft:#2C1A12;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -18px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper:#0E1311; --surface:#151C19; --surface-2:#1B2320;
+    --ink:#E9EFEB; --ink-2:#B7C3BC; --muted:#8A968F;
+    --rule:#262F2B; --rule-firm:#3A4640;
+    --goal:#54C79A; --goal-soft:#12291F;
+    --pain:#F0885A; --pain-soft:#2C1A12;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -18px rgba(0,0,0,.8);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper); color: var(--ink);
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 16.5px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 28px 96px; }
+  h1,h2,h3,h4 {
+    font-family: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700; letter-spacing: -0.018em; text-wrap: balance; margin: 0;
+  }
+
+  header.masthead { border-bottom: 1px solid var(--rule-firm); padding: 64px 0 32px; margin-bottom: 38px; }
+  .eyebrow {
+    font-family:"IBM Plex Mono",monospace; font-size:11.5px; font-weight:500;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--muted); margin:0 0 18px;
+  }
+  .eyebrow span { color: var(--goal); }
+  h1 { font-size: clamp(38px,6.4vw,62px); line-height:1.02; font-weight:800; letter-spacing:-.032em; max-width:14ch; }
+  .standfirst { margin:22px 0 0; max-width:62ch; font-size:19px; line-height:1.55; color:var(--ink-2); }
+
+  .warn {
+    background: var(--pain-soft); border-left: 3px solid var(--pain);
+    border-radius: 0 4px 4px 0; padding: 17px 22px; margin: 30px 0 0;
+    font-size: 15.5px; line-height: 1.55; color: var(--ink-2); max-width: 74ch;
+  }
+  .warn strong { color: var(--ink); }
+
+  section { margin-top: 58px; }
+  .sec-head {
+    display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;
+    border-bottom:2px solid var(--ink); padding-bottom:10px; margin-bottom:10px;
+  }
+  .sec-head h2 { font-size:23px; letter-spacing:-.022em; }
+  .sec-head .count {
+    font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:600;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--goal);
+  }
+  .sec-sub { margin:12px 0 22px; font-size:14.5px; color:var(--muted); max-width:70ch; }
+
+  .fmt {
+    background: var(--surface); border:1px solid var(--rule); border-radius:4px;
+    box-shadow: var(--shadow); padding: 20px 24px 22px; margin-bottom: 13px;
+  }
+  .fmt-top { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:10px; }
+  .fmt h3 { font-size:19px; line-height:1.2; }
+  .conf {
+    font-family:"IBM Plex Mono",monospace; font-size:10px; font-weight:600;
+    letter-spacing:.07em; padding:3px 8px; border-radius:3px;
+  }
+  .conf.sure { background:var(--goal-soft); color:var(--goal); }
+  .conf.guess { background:var(--pain-soft); color:var(--pain); }
+
+  .fmt dl { margin:0; display:grid; grid-template-columns: 92px 1fr; gap:9px 16px; }
+  @media (max-width:600px){ .fmt dl { grid-template-columns:1fr; gap:3px 0; } .fmt dd { margin-bottom:10px; } }
+  .fmt dt {
+    font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:600;
+    letter-spacing:.08em; text-transform:uppercase; color:var(--muted); padding-top:4px;
+  }
+  .fmt dd { margin:0; font-size:15px; line-height:1.52; color:var(--ink-2); }
+  .fmt dd b { color: var(--ink); font-weight:600; }
+  .fmt dd.beats { color: var(--ink); }
+  .fmt dd.beats span { color: var(--muted); }
+
+  .scripts .script {
+    background: var(--surface); border:1px solid var(--rule); border-radius:4px;
+    box-shadow: var(--shadow); padding: 24px 26px 26px; margin-bottom: 16px;
+  }
+  .script-head { border-bottom:1px solid var(--rule); padding-bottom:13px; margin-bottom:16px; }
+  .script-head h3 { font-size:20px; margin-bottom:7px; }
+  .script-head .tags { display:flex; flex-wrap:wrap; gap:6px; }
+  .tag {
+    font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:500;
+    letter-spacing:.05em; padding:3px 8px; border-radius:3px;
+    background: var(--surface-2); color: var(--ink-2);
+  }
+  .tag.f { background: var(--goal-soft); color: var(--goal); }
+
+  table.sc { width:100%; border-collapse:collapse; }
+  table.sc td { padding: 9px 0; border-top:1px solid var(--rule); vertical-align: baseline; }
+  table.sc tr:first-child td { border-top:none; }
+  td.t {
+    font-family:"IBM Plex Mono",monospace; font-size:11.5px; font-weight:500;
+    color:var(--goal); white-space:nowrap; width:62px; padding-right:16px;
+    font-variant-numeric: tabular-nums;
+  }
+  td.line { font-size:16.5px; line-height:1.5; }
+  td.line em { color: var(--muted); font-style: italic; font-size: 14.5px; }
+  .spoken { color: var(--ink); }
+
+  .note {
+    margin-top:16px; padding-top:13px; border-top:1px solid var(--rule);
+    font-size:14px; line-height:1.55; color:var(--muted);
+  }
+  .note b { color: var(--ink-2); }
+
+  footer.method {
+    margin-top:70px; padding-top:22px; border-top:1px solid var(--rule-firm);
+    font-size:14px; line-height:1.6; color:var(--muted); max-width:68ch;
+  }
+  footer.method h4 {
+    font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:600;
+    letter-spacing:.12em; text-transform:uppercase; color:var(--ink-2); margin:0 0 9px;
+  }
+  footer.method p { margin:0 0 10px; }
+  :focus-visible { outline:2px solid var(--goal); outline-offset:3px; }
+  @media (prefers-reduced-motion: reduce){ *{animation:none!important;transition:none!important} }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">Kyri Media &middot; <span>Ten formats</span> &middot; Specs + three finished scripts</p>
+    <h1>Format Playbook</h1>
+    <p class="standfirst">
+      Each of the ten formats in <em>VIRAL FORMATS.docx</em>, defined: what it is, when it earns its
+      place, how to shoot it, and the beat structure to write against. Then three scripts written
+      word for word, ready to shoot.
+    </p>
+    <p class="warn">
+      <strong>What I could and couldn&rsquo;t check.</strong> Your doc gives a label and one Instagram
+      link per format, and Instagram is blocked by this environment&rsquo;s network proxy &mdash; so I
+      have not watched your references. Seven definitions below are standard and safe. Two are
+      near-certain. <strong>&ldquo;Double You&rdquo; is my inference from the name alone</strong> and is
+      marked as such; check that one against your reel before shooting it.
+    </p>
+  </header>
+
+  <section>
+    <div class="sec-head"><h2>The ten formats</h2><span class="count">Specs</span></div>
+    <p class="sec-sub">
+      Ordered by how much of your thirty-video list each one carries. The first four cover
+      twenty-six of the thirty.
+    </p>
+
+    <div class="fmt">
+      <div class="fmt-top"><h3>Visual Demonstration</h3><span class="conf sure">Confident</span></div>
+      <dl>
+        <dt>What</dt><dd>You show the thing instead of describing it &mdash; a screen recording, a prop, a process running in real time. The footage is the argument; your voice is the caption.</dd>
+        <dt>Use for</dt><dd>Proof and process. Anything where a claim would sound like marketing but a screen recording sounds like evidence.</dd>
+        <dt>Shot</dt><dd>Whatever is being shown fills the frame. Record the visual first, write and lay the voiceover after &mdash; never the reverse, or you&rsquo;ll narrate footage you don&rsquo;t have.</dd>
+        <dt>Beats</dt><dd class="beats">Name what they&rsquo;re about to see <span>&rarr;</span> show it uninterrupted <span>&rarr;</span> the one number that matters <span>&rarr;</span> what it means for them</dd>
+        <dt>Your 30</dt><dd>01, 02, 03, 07, 10, 16, 20, 25 &mdash; <b>8 videos</b></dd>
+      </dl>
+    </div>
+
+    <div class="fmt">
+      <div class="fmt-top"><h3>Split-Screen</h3><span class="conf sure">Confident</span></div>
+      <dl>
+        <dt>What</dt><dd>Two panels running at once, A against B. The comparison does the work &mdash; you barely have to make the point out loud.</dd>
+        <dt>Use for</dt><dd>Before and after, wrong way versus right way, cheap versus considered. Your highest-converting teardown format.</dd>
+        <dt>Shot</dt><dd>Label both sides inside the first second, or people scroll before they understand what they&rsquo;re comparing. Keep both panels moving in sync; cut on the same beat.</dd>
+        <dt>Beats</dt><dd class="beats">Label both sides <span>&rarr;</span> run them together <span>&rarr;</span> hold on the single clearest difference <span>&rarr;</span> one line naming it</dd>
+        <dt>Your 30</dt><dd>05, 08, 17, 18, 19, 21 &mdash; <b>6 videos</b></dd>
+      </dl>
+    </div>
+
+    <div class="fmt">
+      <div class="fmt-top"><h3>Whiteboard</h3><span class="conf sure">Confident</span></div>
+      <dl>
+        <dt>What</dt><dd>Hand, marker, board. You build an explanation in front of them one line at a time.</dd>
+        <dt>Use for</dt><dd>Any argument made of numbers or a chain of logic. <b>The most useful format you currently don&rsquo;t use</b> &mdash; it carries thesis-grade content and needs no face, which is exactly your bottleneck.</dd>
+        <dt>Shot</dt><dd>Camera square to the board, hand entering from the side. Write large, four or five lines maximum. Don&rsquo;t film your face; you don&rsquo;t need it.</dd>
+        <dt>Beats</dt><dd class="beats">Write the question first <span>&rarr;</span> one number per line <span>&rarr;</span> arrive at the answer rather than opening with it <span>&rarr;</span> circle the punchline</dd>
+        <dt>Your 30</dt><dd>06, 09, 11, 13, 23, 29 &mdash; <b>6 videos</b></dd>
+      </dl>
+    </div>
+
+    <div class="fmt">
+      <div class="fmt-top"><h3>Text on B-Roll</h3><span class="conf sure">Confident</span></div>
+      <dl>
+        <dt>What</dt><dd>Nobody speaks. Text cards sit over footage with a music bed underneath.</dd>
+        <dt>Use for</dt><dd>Stories and emotional turns. Also the cheapest thing you can produce at volume, and it works while muted, which is how most of the feed is watched.</dd>
+        <dt>Shot</dt><dd>Card one must work entirely alone &mdash; it is the whole hook. One idea per card, five to eight words, six to eight cards total. Footage is wallpaper; don&rsquo;t make it compete.</dd>
+        <dt>Beats</dt><dd class="beats">Hook card <span>&rarr;</span> situation in two cards <span>&rarr;</span> the complication <span>&rarr;</span> the turn <span>&rarr;</span> last card lands and stops</dd>
+        <dt>Your 30</dt><dd>04, 12, 14, 15, 24 &mdash; <b>5 videos</b></dd>
+      </dl>
+    </div>
+
+    <div class="fmt">
+      <div class="fmt-top"><h3>Regular Talking Head</h3><span class="conf sure">Confident</span></div>
+      <dl>
+        <dt>What</dt><dd>Static tripod, framed, clean audio, teleprompter. The default.</dd>
+        <dt>Use for</dt><dd>Thesis and opinion, where your face is the credibility. Weakest format for anything you could show instead.</dd>
+        <dt>Shot</dt><dd>Eyeline just above the lens, not below. Teleprompter close enough that you aren&rsquo;t visibly reading. Record eight of these in one sitting with outfit changes.</dd>
+        <dt>Beats</dt><dd class="beats">Hook before any preamble <span>&rarr;</span> exactly three points <span>&rarr;</span> one quotable line <span>&rarr;</span> stop, no sign-off</dd>
+        <dt>Your 30</dt><dd>26, 30 &mdash; <b>2 videos</b></dd>
+      </dl>
+    </div>
+
+    <div class="fmt">
+      <div class="fmt-top"><h3>Walking Shot</h3><span class="conf sure">Confident</span></div>
+      <dl>
+        <dt>What</dt><dd>Talking to camera while walking, background moving behind you.</dd>
+        <dt>Use for</dt><dd>Opinion pieces. The movement buys three or four extra seconds of attention before anyone decides to scroll &mdash; use it on your most argumentative content.</dd>
+        <dt>Shot</dt><dd>Gimbal or a steady hand, camera walking backwards ahead of you. Somewhere with visual change; a blank corridor wastes the format. Wired mic &mdash; outdoor audio is what kills these.</dd>
+        <dt>Beats</dt><dd class="beats">Hook on the first stride <span>&rarr;</span> one argument, no sub-points <span>&rarr;</span> land it and stop walking on the last line</dd>
+        <dt>Your 30</dt><dd>28 &mdash; <b>1 video</b></dd>
+      </dl>
+    </div>
+
+    <div class="fmt">
+      <div class="fmt-top"><h3>Selfie Cam</h3><span class="conf sure">Confident</span></div>
+      <dl>
+        <dt>What</dt><dd>Arm&rsquo;s length, phone in hand, slightly off-centre and deliberately unpolished.</dd>
+        <dt>Use for</dt><dd>Confessional and funny. Reads as a message to one person rather than a broadcast, so it carries things a tripod would make sound corporate.</dd>
+        <dt>Shot</dt><dd>Don&rsquo;t light it, don&rsquo;t stage it, don&rsquo;t script it word for word. The roughness is the format &mdash; polishing it removes the only reason to use it.</dd>
+        <dt>Beats</dt><dd class="beats">Start mid-thought, as if continuing a conversation <span>&rarr;</span> one story <span>&rarr;</span> no call to action</dd>
+        <dt>Your 30</dt><dd>27 &mdash; <b>1 video</b></dd>
+      </dl>
+    </div>
+
+    <div class="fmt">
+      <div class="fmt-top"><h3>Wide Shots</h3><span class="conf sure">Near-certain</span></div>
+      <dl>
+        <dt>What</dt><dd>Subject small inside a large, still frame. Voiceover rather than sync sound.</dd>
+        <dt>Use for</dt><dd>Luxury and location. Wide, slow framing is what reads as expensive &mdash; which makes it self-demonstrating on any video arguing about high-end content.</dd>
+        <dt>Shot</dt><dd>Let the frame breathe a second or two before the voiceover starts. Fewer words than feels comfortable. Static or a very slow push; never handheld.</dd>
+        <dt>Beats</dt><dd class="beats">Frame holds in silence <span>&rarr;</span> one sentence <span>&rarr;</span> hold again <span>&rarr;</span> the turn <span>&rarr;</span> out</dd>
+        <dt>Your 30</dt><dd>Unused &mdash; <b>should be 22</b> (what luxury content gets wrong)</dd>
+      </dl>
+    </div>
+
+    <div class="fmt">
+      <div class="fmt-top"><h3>Podcast</h3><span class="conf sure">Confident</span></div>
+      <dl>
+        <dt>What</dt><dd>Two people seated with mics, two cameras, recorded long and cut down.</dd>
+        <dt>Use for</dt><dd>Candour that would sound rehearsed alone. A second person lets you say things about your own business that read as arrogant in a monologue.</dd>
+        <dt>Shot</dt><dd>Needs a second person &mdash; a real constraint, not an oversight. TK or Krystal opposite you. Two angles so you can cut on reactions; one long session yields a month of clips.</dd>
+        <dt>Beats</dt><dd class="beats">One states a position <span>&rarr;</span> the other pushes back once, genuinely <span>&rarr;</span> arrive somewhere neither started</dd>
+        <dt>Your 30</dt><dd>Unused &mdash; best fit is <b>16</b> (the account that stalled)</dd>
+      </dl>
+    </div>
+
+    <div class="fmt">
+      <div class="fmt-top"><h3>Double You</h3><span class="conf guess">Inferred &mdash; check this one</span></div>
+      <dl>
+        <dt>What</dt><dd><b>My reading:</b> you appear twice in the same frame, playing two roles &mdash; the doubt and the answer. I have not seen your reference, so treat this as a proposal, not a definition.</dd>
+        <dt>Use for</dt><dd>Objections. It lets you voice a prospect&rsquo;s scepticism in their own words without it sounding like a straw man, because you&rsquo;re the one saying it.</dd>
+        <dt>Shot</dt><dd>Lock the camera on a tripod and do not touch it between takes. Film side A, film side B, mask the two halves together in post. Change one visible thing &mdash; a jacket, a cap &mdash; so the two read as distinct instantly.</dd>
+        <dt>Beats</dt><dd class="beats">Role A states the doubt verbatim <span>&rarr;</span> Role B answers with one piece of evidence <span>&rarr;</span> Role A escalates once <span>&rarr;</span> Role B lands the line</dd>
+        <dt>Your 30</dt><dd>Unused &mdash; worth <b>three new videos</b>: &ldquo;why not just hire an intern&rdquo;, &ldquo;can I try one month&rdquo;, &ldquo;isn&rsquo;t $1,500 a lot&rdquo;</dd>
+      </dl>
+    </div>
+
+  </section>
+
+  <section class="scripts">
+    <div class="sec-head"><h2>Three scripts</h2><span class="count">Ready to shoot</span></div>
+    <p class="sec-sub">
+      All three are faceless, so none of them wait on you being ready to record on camera. Timings
+      are the target, not a straitjacket &mdash; if a beat runs short, that&rsquo;s a gain.
+    </p>
+
+    <div class="script">
+      <div class="script-head">
+        <h3>09 &middot; $1,500 a month versus one Zillow lead</h3>
+        <div class="tags"><span class="tag f">Whiteboard</span><span class="tag">~55 sec</span><span class="tag">Faceless</span><span class="tag">Answers: price objection (6 of 9 agents)</span></div>
+      </div>
+      <table class="sc">
+        <tr><td class="t">0:00</td><td class="line"><span class="spoken">&ldquo;She was paying four hundred and fifty dollars a month for leads that only ever wanted land.&rdquo;</span><br><em>Board empty. Write $450/mo as you say it.</em></td></tr>
+        <tr><td class="t">0:06</td><td class="line"><span class="spoken">&ldquo;That&rsquo;s fifty-four hundred a year. For leads she didn&rsquo;t pick, in a market she doesn&rsquo;t want.&rdquo;</span><br><em>Write &times;12 = $5,400 underneath.</em></td></tr>
+        <tr><td class="t">0:14</td><td class="line"><span class="spoken">&ldquo;This is what we charge.&rdquo;</span><br><em>Write $1,500/mo beside it. Pause.</em></td></tr>
+        <tr><td class="t">0:18</td><td class="line"><span class="spoken">&ldquo;More. I know. So here&rsquo;s the only question that actually matters.&rdquo;</span></td></tr>
+        <tr><td class="t">0:23</td><td class="line"><span class="spoken">&ldquo;How many closings does it take to break even?&rdquo;</span><br><em>Write the question. Underline it.</em></td></tr>
+        <tr><td class="t">0:28</td><td class="line"><span class="spoken">&ldquo;Eighteen thousand a year. Say your average commission after split is nine.&rdquo;</span><br><em>Write $18,000 &divide; $9,000.</em></td></tr>
+        <tr><td class="t">0:36</td><td class="line"><span class="spoken">&ldquo;Two. Two extra closings in a year and you&rsquo;re level.&rdquo;</span><br><em>Write 2 and circle it.</em></td></tr>
+        <tr><td class="t">0:42</td><td class="line"><span class="spoken">&ldquo;Everything past that is profit. And unlike the portal, it doesn&rsquo;t switch off the month you stop paying.&rdquo;</span></td></tr>
+        <tr><td class="t">0:50</td><td class="line"><span class="spoken">&ldquo;Run it on your own numbers. If two extra closings a year sounds impossible &mdash; genuinely, don&rsquo;t do this.&rdquo;</span></td></tr>
+      </table>
+      <p class="note">
+        <b>Why the ending disqualifies.</b> Telling the wrong people not to buy is what makes the
+        arithmetic land as arithmetic instead of a pitch. Swap in your own commission figure if
+        nine thousand is off for your market &mdash; the number has to be defensible on camera.
+      </p>
+    </div>
+
+    <div class="script">
+      <div class="script-head">
+        <h3>07 &middot; Eleven leads in seven days</h3>
+        <div class="tags"><span class="tag f">Visual Demonstration</span><span class="tag">~45 sec</span><span class="tag">Faceless</span><span class="tag">Assets already exist</span></div>
+      </div>
+      <table class="sc">
+        <tr><td class="t">0:00</td><td class="line"><span class="spoken">&ldquo;This is one client&rsquo;s inbox after a single week.&rdquo;</span><br><em>Open on the DM list already scrolling. No intro, no logo.</em></td></tr>
+        <tr><td class="t">0:05</td><td class="line"><span class="spoken">&ldquo;Eleven leads. Seven days.&rdquo;</span><br><em>Hold on the count.</em></td></tr>
+        <tr><td class="t">0:09</td><td class="line"><span class="spoken">&ldquo;He&rsquo;s not technical. No funnel, no landing page, no lead magnet. He&rsquo;s asked me twice how to pin a comment.&rdquo;</span></td></tr>
+        <tr><td class="t">0:17</td><td class="line"><span class="spoken">&ldquo;He posts twice a week. That&rsquo;s the whole system.&rdquo;</span><br><em>Cut to his grid.</em></td></tr>
+        <tr><td class="t">0:22</td><td class="line"><span class="spoken">&ldquo;And here&rsquo;s the part people get wrong &mdash;&rdquo;</span><br><em>Pull up the view counts.</em></td></tr>
+        <tr><td class="t">0:26</td><td class="line"><span class="spoken">&ldquo;None of this went viral. His biggest week was four thousand views.&rdquo;</span></td></tr>
+        <tr><td class="t">0:32</td><td class="line"><span class="spoken">&ldquo;You don&rsquo;t need a hit. You need to be the one agent in your market who shows up every week while the other four hundred don&rsquo;t.&rdquo;</span></td></tr>
+        <tr><td class="t">0:41</td><td class="line"><span class="spoken">&ldquo;Eleven conversations. From two posts a week.&rdquo;</span></td></tr>
+      </table>
+      <p class="note">
+        <b>Shoot this first.</b> Krystal already pulled these screenshots for the website, so
+        production is a screen recording and a voiceover. Blur names and faces before it goes out
+        &mdash; and check Michael is fine with the week being shown at all, even anonymised.
+      </p>
+    </div>
+
+    <div class="script">
+      <div class="script-head">
+        <h3>24 &middot; Three clients who&rsquo;ve never shown their face</h3>
+        <div class="tags"><span class="tag f">Text on B-Roll</span><span class="tag">~40 sec</span><span class="tag">Silent</span><span class="tag">Answers: camera fear (3 of 9 agents)</span></div>
+      </div>
+      <table class="sc">
+        <tr><td class="t">Card 1</td><td class="line"><span class="spoken">Three of my clients have never shown their face.</span><br><em>Over: keys landing on a kitchen counter.</em></td></tr>
+        <tr><td class="t">Card 2</td><td class="line"><span class="spoken">One of them got 11 leads last week.</span><br><em>Over: front door swinging open.</em></td></tr>
+        <tr><td class="t">Card 3</td><td class="line"><span class="spoken">This is everything they film.</span><br><em>Over: sign going into a lawn.</em></td></tr>
+        <tr><td class="t">Card 4</td><td class="line"><span class="spoken">No script to memorise.</span><br><em>Over: walking up a driveway, shot from behind.</em></td></tr>
+        <tr><td class="t">Card 5</td><td class="line"><span class="spoken">No talking to a lens.</span><br><em>Over: light through a window, slow pan.</em></td></tr>
+        <tr><td class="t">Card 6</td><td class="line"><span class="spoken">Just their voice, over their own footage.</span><br><em>Over: door closing.</em></td></tr>
+        <tr><td class="t">Card 7</td><td class="line"><span class="spoken">If &ldquo;I hate being on camera&rdquo; is the thing stopping you &mdash;</span><br><em>Over: empty room, static.</em></td></tr>
+        <tr><td class="t">Card 8</td><td class="line"><span class="spoken">it was never the requirement.</span><br><em>Hold two seconds. End.</em></td></tr>
+      </table>
+      <p class="note">
+        <b>Card one carries the whole video.</b> If it doesn&rsquo;t stop the scroll on its own, nothing
+        after it gets read. Every shot listed here is in your existing client b-roll &mdash; this needs
+        no new filming at all.
+      </p>
+    </div>
+
+  </section>
+
+  <footer class="method">
+    <h4>Notes</h4>
+    <p>
+      Format definitions come from standard short-form practice plus the labels in
+      <em>VIRAL FORMATS.docx</em>. The reference reels could not be opened from this environment,
+      so nothing here is calibrated against your specific examples &mdash; if a definition contradicts
+      what your reference shows, the reference wins.
+    </p>
+    <p>
+      Scripts are written for Kyri Media&rsquo;s own pages, addressed to agents. Client names and
+      numbers are real and internal: anonymise before anything is published, and get consent for
+      any client whose account is shown, even blurred.
+    </p>
+  </footer>
+
+</div>
