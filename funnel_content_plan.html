@@ -1,0 +1,489 @@
+<title>Funnel Content Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+
+<style>
+  :root {
+    --paper:#FBFBF9; --surface:#FFFFFF; --surface-2:#F4F6F4;
+    --ink:#121815; --ink-2:#3D4842; --muted:#6E7A73;
+    --rule:#E2E7E3; --rule-firm:#CBD3CD;
+    --top:#1F6FA8; --top-soft:#E4EFF6;
+    --mid:#0F6E4F; --mid-soft:#E6F2EC;
+    --bot:#B4460F; --bot-soft:#FAEDE4;
+    --shadow: 0 1px 2px rgba(18,24,21,.05), 0 8px 24px -18px rgba(18,24,21,.28);
+  }
+  :root:not([data-theme="light"]) { color-scheme: light; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --paper:#0E1311; --surface:#151C19; --surface-2:#1B2320;
+      --ink:#E9EFEB; --ink-2:#B7C3BC; --muted:#8A968F;
+      --rule:#262F2B; --rule-firm:#3A4640;
+      --top:#6BB6E2; --top-soft:#122630;
+      --mid:#54C79A; --mid-soft:#12291F;
+      --bot:#F0885A; --bot-soft:#2C1A12;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -18px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper:#0E1311; --surface:#151C19; --surface-2:#1B2320;
+    --ink:#E9EFEB; --ink-2:#B7C3BC; --muted:#8A968F;
+    --rule:#262F2B; --rule-firm:#3A4640;
+    --top:#6BB6E2; --top-soft:#122630;
+    --mid:#54C79A; --mid-soft:#12291F;
+    --bot:#F0885A; --bot-soft:#2C1A12;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -18px rgba(0,0,0,.8);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper); color: var(--ink);
+    font-family:"Source Serif 4", Georgia, serif;
+    font-size:16.5px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .wrap { max-width:1000px; margin:0 auto; padding:0 28px 96px; }
+  h1,h2,h3,h4 {
+    font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+    font-weight:700; letter-spacing:-.018em; text-wrap:balance; margin:0;
+  }
+
+  header.masthead { border-bottom:1px solid var(--rule-firm); padding:64px 0 32px; margin-bottom:36px; }
+  .eyebrow {
+    font-family:"IBM Plex Mono",monospace; font-size:11.5px; font-weight:500;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--muted); margin:0 0 18px;
+  }
+  .eyebrow span { color: var(--mid); }
+  h1 { font-size:clamp(38px,6.4vw,62px); line-height:1.02; font-weight:800; letter-spacing:-.032em; max-width:14ch; }
+  .standfirst { margin:22px 0 0; max-width:62ch; font-size:19px; line-height:1.55; color:var(--ink-2); }
+
+  .ratio { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:34px; }
+  @media (max-width:720px){ .ratio { grid-template-columns:1fr; } }
+  .ratio div {
+    border-radius:4px; padding:16px 18px;
+    border:1px solid var(--rule);
+  }
+  .ratio .r-top { background:var(--top-soft); border-color:transparent; }
+  .ratio .r-mid { background:var(--mid-soft); border-color:transparent; }
+  .ratio .r-bot { background:var(--bot-soft); border-color:transparent; }
+  .ratio b {
+    display:block; font-family:"Bricolage Grotesque",sans-serif;
+    font-size:32px; font-weight:800; letter-spacing:-.03em; line-height:1;
+    font-variant-numeric:tabular-nums;
+  }
+  .r-top b { color:var(--top); } .r-mid b { color:var(--mid); } .r-bot b { color:var(--bot); }
+  .ratio small {
+    display:block; margin-top:7px;
+    font-family:"IBM Plex Mono",monospace; font-size:10.5px;
+    letter-spacing:.08em; text-transform:uppercase; color:var(--ink-2);
+  }
+  .ratio p { margin:8px 0 0; font-size:14.5px; line-height:1.45; color:var(--ink-2); }
+
+  .warn {
+    background:var(--bot-soft); border-left:3px solid var(--bot);
+    border-radius:0 4px 4px 0; padding:17px 22px; margin:32px 0 0;
+    font-size:15.5px; line-height:1.55; color:var(--ink-2); max-width:74ch;
+  }
+  .warn strong { color:var(--ink); }
+
+  section { margin-top:58px; }
+  .sec-head { display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; padding-bottom:10px; margin-bottom:10px; border-bottom:2px solid var(--ink); }
+  .sec-head h2 { font-size:23px; letter-spacing:-.022em; }
+  .sec-head .count {
+    font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:600;
+    letter-spacing:.1em; text-transform:uppercase;
+  }
+  .s-top .count { color:var(--top); } .s-mid .count { color:var(--mid); } .s-bot .count { color:var(--bot); }
+  .s-top .sec-head { border-bottom-color:var(--top); }
+  .s-mid .sec-head { border-bottom-color:var(--mid); }
+  .s-bot .sec-head { border-bottom-color:var(--bot); }
+  .sec-sub { margin:12px 0 22px; font-size:14.5px; color:var(--muted); max-width:72ch; }
+
+  .ideas { display:flex; flex-direction:column; gap:11px; }
+  .idea {
+    background:var(--surface); border:1px solid var(--rule); border-radius:4px;
+    box-shadow:var(--shadow); padding:17px 21px 18px;
+    display:grid; grid-template-columns:44px 1fr; gap:0 14px;
+  }
+  @media (max-width:620px){ .idea { grid-template-columns:1fr; gap:5px; } }
+  .num {
+    font-family:"IBM Plex Mono",monospace; font-size:11.5px; font-weight:600;
+    font-variant-numeric:tabular-nums; padding-top:3px;
+  }
+  .s-top .num { color:var(--top); } .s-mid .num { color:var(--mid); } .s-bot .num { color:var(--bot); }
+  .idea h3 { font-size:17.5px; line-height:1.25; margin:0 0 7px; }
+  .hook {
+    margin:0 0 9px; padding-left:13px; font-size:15.5px; line-height:1.45;
+    font-style:italic; color:var(--ink); border-left:2px solid var(--rule-firm);
+  }
+  .s-top .hook { border-left-color:var(--top); }
+  .s-mid .hook { border-left-color:var(--mid); }
+  .s-bot .hook { border-left-color:var(--bot); }
+  .idea p.body { margin:0; font-size:14.6px; line-height:1.52; color:var(--ink-2); }
+  .meta { display:flex; flex-wrap:wrap; gap:6px; margin-top:11px; }
+  .chip {
+    font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:500;
+    letter-spacing:.05em; padding:3px 8px; border-radius:3px;
+    background:var(--surface-2); color:var(--ink-2); white-space:nowrap;
+  }
+  .chip.new { background:transparent; border:1px solid var(--rule-firm); color:var(--muted); }
+  .chip.keep { background:var(--mid-soft); color:var(--mid); }
+
+  .audit {
+    background:var(--surface-2); border:1px solid var(--rule); border-radius:4px;
+    padding:22px 24px; margin-bottom:6px;
+  }
+  .audit p { margin:0 0 12px; font-size:15.5px; line-height:1.55; color:var(--ink-2); }
+  .audit p:last-child { margin-bottom:0; }
+  .audit b { color:var(--ink); }
+
+  footer.method {
+    margin-top:70px; padding-top:22px; border-top:1px solid var(--rule-firm);
+    font-size:14px; line-height:1.6; color:var(--muted); max-width:70ch;
+  }
+  footer.method h4 {
+    font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:600;
+    letter-spacing:.12em; text-transform:uppercase; color:var(--ink-2); margin:0 0 9px;
+  }
+  footer.method p { margin:0 0 10px; }
+  footer.method b { color: var(--ink-2); }
+  :focus-visible { outline:2px solid var(--mid); outline-offset:3px; }
+  @media (prefers-reduced-motion: reduce){ *{animation:none!important;transition:none!important} }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">Kyri Media &middot; <span>Awareness split</span> &middot; 30 videos re-cut</p>
+    <h1>Funnel Content Plan</h1>
+    <p class="standfirst">
+      Your thirty videos sorted by how aware the agent watching already is &mdash; and rebalanced to
+      the ten per cent solution-aware ceiling you asked for. Fifteen new top-of-funnel ideas fill
+      the gap that audit exposed.
+    </p>
+
+    <div class="ratio">
+      <div class="r-top">
+        <b>60%</b>
+        <small>Top &middot; Unaware</small>
+        <p>18 videos. Doesn&rsquo;t know they have a content problem. Content earns attention without mentioning you.</p>
+      </div>
+      <div class="r-mid">
+        <b>30%</b>
+        <small>Middle &middot; Problem aware</small>
+        <p>9 videos. Knows the content isn&rsquo;t working. Doesn&rsquo;t yet know done-for-you is the answer.</p>
+      </div>
+      <div class="r-bot">
+        <b>10%</b>
+        <small>Bottom &middot; Solution aware</small>
+        <p>3 videos. Already comparing vendors. Needs offer, proof and price.</p>
+      </div>
+    </div>
+
+    <p class="warn">
+      <strong>The audit found the opposite of what you want.</strong> Of the thirty videos I wrote,
+      roughly ten are bottom-of-funnel and only three are genuinely top. That&rsquo;s about
+      33&nbsp;/&nbsp;57&nbsp;/&nbsp;10 &mdash; near-inverted. It happened because I built the list off
+      your discovery calls, and discovery calls only contain people who are <em>already</em>
+      solution aware. Nobody unaware ever books one, so they never appeared in the data.
+    </p>
+  </header>
+
+  <section>
+    <div class="sec-head"><h2>What the split actually costs</h2></div>
+    <div class="audit">
+      <p>
+        <b>You don&rsquo;t need to throw the bottom-of-funnel work away &mdash; you need to move most of
+        it off the feed.</b> Seven of those ten videos belong in a sales library, not a posting
+        calendar: the ones your setters send mid-conversation when a prospect stalls on price or
+        asks what they actually get. Your Aug 21 setter meeting already found this &mdash; the website
+        video and testimonials were the strongest tools for countering price objections. That is
+        bottom-of-funnel content doing its job outside the feed.
+      </p>
+      <p>
+        <b>Three stay on the feed</b> (01, 07, 09 below) &mdash; enough that someone who has just
+        discovered you can find the offer, the proof and the price without a call.
+      </p>
+      <p>
+        <b>The real work is top of funnel</b>, where you have three videos and need eighteen.
+        Fifteen new ones are written below. They are about being an agent, not about video
+        marketing &mdash; that&rsquo;s the point. An agent who doesn&rsquo;t know they have a content problem
+        will not watch content about content.
+      </p>
+    </div>
+  </section>
+
+  <section class="s-bot">
+    <div class="sec-head"><h2>Bottom &middot; Solution aware</h2><span class="count">10% &middot; 3 videos</span></div>
+    <p class="sec-sub">
+      They know they want done-for-you video and are choosing between vendors. Offer, proof, price
+      &mdash; one video each, no more.
+    </p>
+    <div class="ideas">
+
+      <article class="idea"><div class="num">01</div><div>
+        <h3>Two hours a month, eight videos</h3>
+        <p class="hook">&ldquo;This is a full month of content being filmed. Watch the clock in the corner.&rdquo;</p>
+        <p class="body">The offer, demonstrated rather than described. This is the &ldquo;what do I actually get&rdquo; video, and the time cost is the part every agent asks about first.</p>
+        <div class="meta"><span class="chip keep">From the 30</span><span class="chip">Visual Demonstration</span><span class="chip">The offer</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">07</div><div>
+        <h3>Eleven leads in seven days</h3>
+        <p class="hook">&ldquo;This is one client&rsquo;s inbox after a single week. He isn&rsquo;t technical and he has no funnel.&rdquo;</p>
+        <p class="body">The proof. Script is already written. Assets already exist in Krystal&rsquo;s screenshots &mdash; this is the fastest thing on the whole plan to ship.</p>
+        <div class="meta"><span class="chip keep">From the 30</span><span class="chip">Visual Demonstration</span><span class="chip">Why us</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">09</div><div>
+        <h3>$1,500 a month versus one Zillow lead</h3>
+        <p class="hook">&ldquo;She was paying four hundred and fifty dollars a month for leads that only ever wanted land.&rdquo;</p>
+        <p class="body">The price. Script written. Handles the objection six of nine agents raised, and does it as arithmetic the agent runs on their own numbers rather than as a pitch.</p>
+        <div class="meta"><span class="chip keep">From the 30</span><span class="chip">Whiteboard</span><span class="chip">Price</span></div>
+      </div></article>
+
+    </div>
+    <p class="sec-sub" style="margin-top:18px">
+      <b style="color:var(--ink-2)">Moved to the sales library, not deleted:</b> 02 (the script doc),
+      06 (the calendar call), 10 (95k views), 14 (four questions before you wire money),
+      16 (the account that stalled), 17 (the client who almost quit), 30 (why not month to month).
+      Shoot them &mdash; then hand them to setters to send mid-conversation.
+    </p>
+  </section>
+
+  <section class="s-mid">
+    <div class="sec-head"><h2>Middle &middot; Problem aware</h2><span class="count">30% &middot; 9 videos</span></div>
+    <p class="sec-sub">
+      They know their content isn&rsquo;t working. The job here is to make the problem specific and
+      expensive &mdash; not to pitch. All nine already exist in the thirty.
+    </p>
+    <div class="ideas">
+
+      <article class="idea"><div class="num">04</div><div>
+        <h3>Your camera roll is full and your feed is empty</h3>
+        <p class="hook">&ldquo;She owns two cameras, two phones and a tripod. She hasn&rsquo;t posted in six weeks.&rdquo;</p>
+        <p class="body">Names the editing bottleneck. The most common self-recognition moment on your calls.</p>
+        <div class="meta"><span class="chip keep">From the 30</span><span class="chip">Text on B-Roll</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">05</div><div>
+        <h3>One shoot, thirty posts</h3>
+        <p class="hook">&ldquo;This is one recording session. This is everything we got out of it.&rdquo;</p>
+        <p class="body">Reframes the problem from &ldquo;I need to post more&rdquo; to &ldquo;I have no system.&rdquo;</p>
+        <div class="meta"><span class="chip keep">From the 30</span><span class="chip">Split-Screen</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">11</div><div>
+        <h3>The metric that isn&rsquo;t views</h3>
+        <p class="hook">&ldquo;Ten thousand views and zero calls means you measured the wrong thing.&rdquo;</p>
+        <p class="body">Teaches the funnel from views to booked calls. Makes their current numbers legible &mdash; usually unflatteringly.</p>
+        <div class="meta"><span class="chip keep">From the 30</span><span class="chip">Whiteboard</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">13</div><div>
+        <h3>Why your last video company sent you the wrong leads</h3>
+        <p class="hook">&ldquo;Your scripts were written by someone who&rsquo;s never been to your town.&rdquo;</p>
+        <p class="body">For the third of your pipeline who already paid someone and got burned.</p>
+        <div class="meta"><span class="chip keep">From the 30</span><span class="chip">Whiteboard</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">15</div><div>
+        <h3>The $20,000 renewal</h3>
+        <p class="hook">&ldquo;Six months in, they asked her for twenty grand. She walked, and hasn&rsquo;t posted since.&rdquo;</p>
+        <p class="body">Ends on the real cost &mdash; not the money, the two years of silence afterwards.</p>
+        <div class="meta"><span class="chip keep">From the 30</span><span class="chip">Text on B-Roll</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">18</div><div>
+        <h3>Why every agent&rsquo;s video looks identical</h3>
+        <p class="hook">&ldquo;Market update. Just listed. Five tips for first-time buyers. You&rsquo;ve made this video.&rdquo;</p>
+        <p class="body">The most shareable one in the set. Mildly insulting, entirely true.</p>
+        <div class="meta"><span class="chip keep">From the 30</span><span class="chip">Split-Screen</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">21</div><div>
+        <h3>Slideshow versus this</h3>
+        <p class="hook">&ldquo;Left is the photo slideshow every agent posts. Right is the same photos, three effects later.&rdquo;</p>
+        <p class="body">Answers the agent who thinks their photographer&rsquo;s video add-on is the same product.</p>
+        <div class="meta"><span class="chip keep">From the 30</span><span class="chip">Split-Screen</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">23</div><div>
+        <h3>Content that wins listings versus content that attracts buyers</h3>
+        <p class="hook">&ldquo;If you want sellers, stop making buyer content. They&rsquo;re not the same videos.&rdquo;</p>
+        <p class="body">Winning listings was the second-most-common goal, and most agents are unknowingly making the wrong kind.</p>
+        <div class="meta"><span class="chip keep">From the 30</span><span class="chip">Whiteboard</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">24</div><div>
+        <h3>Three clients who&rsquo;ve never shown their face</h3>
+        <p class="hook">&ldquo;You don&rsquo;t have to be on camera. Three of my clients never are.&rdquo;</p>
+        <p class="body">Removes the objection that kills deals before price is ever discussed. Script written.</p>
+        <div class="meta"><span class="chip keep">From the 30</span><span class="chip">Text on B-Roll</span></div>
+      </div></article>
+
+    </div>
+  </section>
+
+  <section class="s-top">
+    <div class="sec-head"><h2>Top &middot; Unaware</h2><span class="count">60% &middot; 18 videos</span></div>
+    <p class="sec-sub">
+      An agent who doesn&rsquo;t know they have a content problem will not watch content about content.
+      So none of these eighteen are about video marketing &mdash; they&rsquo;re about being an agent. Three
+      carry over from the thirty; fifteen are new.
+    </p>
+    <div class="ideas">
+
+      <article class="idea"><div class="num">08</div><div>
+        <h3>Guess the view count</h3>
+        <p class="hook">&ldquo;One of these did four hundred views. The other did ten thousand. Guess which.&rdquo;</p>
+        <p class="body">Pure curiosity, no pitch. Built on the question format that pulled 36 comments for Frank.</p>
+        <div class="meta"><span class="chip keep">From the 30</span><span class="chip">Split-Screen</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">28</div><div>
+        <h3>Your referrals are a ceiling, not a moat</h3>
+        <p class="hook">&ldquo;Twenty-one years in business, twenty-eight thousand people in her group, and strangers still can&rsquo;t find her.&rdquo;</p>
+        <p class="body">A belief shift, not a pitch. This is the video that turns an unaware agent into a problem-aware one.</p>
+        <div class="meta"><span class="chip keep">From the 30</span><span class="chip">Walking Shot</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">29</div><div>
+        <h3>The three platforms that actually matter</h3>
+        <p class="hook">&ldquo;TikTok brings you strangers. Facebook keeps your sphere warm. YouTube gets you found on Google.&rdquo;</p>
+        <p class="body">Gives away real strategy. Useful whether or not they ever hire anyone.</p>
+        <div class="meta"><span class="chip keep">From the 30</span><span class="chip">Whiteboard</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">T1</div><div>
+        <h3>When a seller asks you to cut your commission</h3>
+        <p class="hook">&ldquo;The worst thing you can do is defend the number. Do this instead.&rdquo;</p>
+        <p class="body">The single most searched-for skill in the industry right now. Nothing to do with video &mdash; which is exactly why an unaware agent watches it to the end.</p>
+        <div class="meta"><span class="chip new">New</span><span class="chip">Whiteboard</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">T2</div><div>
+        <h3>Guess the sale price</h3>
+        <p class="hook">&ldquo;Three bed, two bath, built 1998, needs a roof. Guess what it went for.&rdquo;</p>
+        <p class="body">The proven question format applied to something every agent has an opinion about. Reveal in a follow-up post. Runs weekly forever.</p>
+        <div class="meta"><span class="chip new">New</span><span class="chip">Text on B-Roll</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">T3</div><div>
+        <h3>The three words that lose you the listing</h3>
+        <p class="hook">&ldquo;Say &lsquo;I think we should&rsquo; at a listing appointment and you&rsquo;ve already lost it.&rdquo;</p>
+        <p class="body">Specific, contrarian, instantly testable. The kind of thing agents screenshot and argue about in the comments.</p>
+        <div class="meta"><span class="chip new">New</span><span class="chip">Regular Talking Head</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">T4</div><div>
+        <h3>Your seller thinks it&rsquo;s still 2022</h3>
+        <p class="hook">&ldquo;Here&rsquo;s the conversation that resets a seller&rsquo;s price expectation without losing you the listing.&rdquo;</p>
+        <p class="body">Tara described this exact pain &mdash; sellers anchored to old prices, long days on market, seven to eight hundred dollars of her own money burned per stale listing.</p>
+        <div class="meta"><span class="chip new">New</span><span class="chip">Whiteboard</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">T5</div><div>
+        <h3>The six o&rsquo;clock rule</h3>
+        <p class="hook">&ldquo;Every agent I know who lasted ten years does one thing. They stop answering at six.&rdquo;</p>
+        <p class="body">Burnout content. Highest share rate of anything in this list, because it gives permission rather than instruction.</p>
+        <div class="meta"><span class="chip new">New</span><span class="chip">Walking Shot</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">T6</div><div>
+        <h3>What people think we do versus what we do</h3>
+        <p class="hook">&ldquo;Everyone thinks we open doors for a living.&rdquo;</p>
+        <p class="body">Left panel: unlocking a door. Right panel: the contract chase, the inspection renegotiation, the lender who stopped replying. Agent-life humour that agents send to other agents.</p>
+        <div class="meta"><span class="chip new">New</span><span class="chip">Split-Screen</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">T7</div><div>
+        <h3>The fourth text</h3>
+        <p class="hook">&ldquo;Three unanswered texts. Here&rsquo;s the fourth one that actually gets a reply.&rdquo;</p>
+        <p class="body">Show it on a phone screen. Immediately usable, costs nothing to produce, and gets saved &mdash; saves are the strongest signal you can earn from a cold viewer.</p>
+        <div class="meta"><span class="chip new">New</span><span class="chip">Visual Demonstration</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">T8</div><div>
+        <h3>Same street, ninety days apart</h3>
+        <p class="hook">&ldquo;Same year, same beds, same street. One sold in nine days. One sat ninety.&rdquo;</p>
+        <p class="body">Two listings side by side, then the actual reason. Market analysis that doubles as a quiet argument for presentation &mdash; without ever naming it.</p>
+        <div class="meta"><span class="chip new">New</span><span class="chip">Split-Screen</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">T9</div><div>
+        <h3>The clause that saved a client $14,000</h3>
+        <p class="hook">&ldquo;One line in the contract. Fourteen thousand dollars.&rdquo;</p>
+        <p class="body">Craft content. Positions expertise without any claim about expertise, and newer agents will save it.</p>
+        <div class="meta"><span class="chip new">New</span><span class="chip">Whiteboard</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">T10</div><div>
+        <h3>Who does the agent at the open house actually work for?</h3>
+        <p class="hook">&ldquo;Most buyers have no idea. A lot of agents explain it badly.&rdquo;</p>
+        <p class="body">Dual agency in forty-five seconds. Mildly controversial, which is what makes it travel past your existing followers.</p>
+        <div class="meta"><span class="chip new">New</span><span class="chip">Regular Talking Head</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">T11</div><div>
+        <h3>It&rsquo;s never the roof</h3>
+        <p class="hook">&ldquo;Inspections almost never kill a deal over what people think they do.&rdquo;</p>
+        <p class="body">Counterintuitive, and every agent has a story that either confirms or contradicts it. Comment engine.</p>
+        <div class="meta"><span class="chip new">New</span><span class="chip">Text on B-Roll</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">T12</div><div>
+        <h3>The open house question</h3>
+        <p class="hook">&ldquo;One question at the door tells you who&rsquo;s buying and who&rsquo;s decorating.&rdquo;</p>
+        <p class="body">Short, practical, slightly funny. Selfie cam suits it &mdash; it should feel like a tip passed between two agents, not a broadcast.</p>
+        <div class="meta"><span class="chip new">New</span><span class="chip">Selfie Cam</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">T13</div><div>
+        <h3>She went quiet for eight months</h3>
+        <p class="hook">&ldquo;No replies for eight months. Then she bought a seven-hundred-thousand-dollar house.&rdquo;</p>
+        <p class="body">The follow-up story. Argues for staying in front of people over time &mdash; which is the whole logic of content, made without mentioning content.</p>
+        <div class="meta"><span class="chip new">New</span><span class="chip">Text on B-Roll</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">T14</div><div>
+        <h3>What agents get wrong on new builds</h3>
+        <p class="hook">&ldquo;Agents lose new-construction clients over one line in the builder&rsquo;s contract.&rdquo;</p>
+        <p class="body">Specialist knowledge, narrow audience, very high save rate among the agents it does reach. Kaui and Gayla both work new construction.</p>
+        <div class="meta"><span class="chip new">New</span><span class="chip">Whiteboard</span></div>
+      </div></article>
+
+      <article class="idea"><div class="num">T15</div><div>
+        <h3>What $600,000 bought in 2019</h3>
+        <p class="hook">&ldquo;This is what six hundred thousand bought in 2019. This is what it buys now.&rdquo;</p>
+        <p class="body">Market nostalgia. Reaches agents and consumers at once, which makes it the widest-reach video in the set &mdash; and the easiest to remake every quarter.</p>
+        <div class="meta"><span class="chip new">New</span><span class="chip">Split-Screen</span></div>
+      </div></article>
+
+    </div>
+  </section>
+
+  <footer class="method">
+    <h4>Two things to decide</h4>
+    <p>
+      <b>The ratio suits a business that sells inbound. Yours doesn&rsquo;t &mdash; yet.</b> You run
+      outbound setters dialling lists, so today most people who see your content arrive already
+      in a conversation. For them the bottom-of-funnel library matters more than reach does. A
+      60&nbsp;/&nbsp;30&nbsp;/&nbsp;10 feed is the right call if the goal is to build inbound over the
+      next six to twelve months; it will not move next month&rsquo;s booked-call number. Both are
+      defensible &mdash; just pick knowingly, because they need different patience.
+    </p>
+    <p>
+      <b>Top of funnel needs a route back.</b> Eighteen videos that never mention your service will
+      grow an audience that doesn&rsquo;t know what you sell. Every one of them needs a bio link, a
+      pinned comment, or a follow-up post that leads somewhere &mdash; otherwise the reach is real and
+      the pipeline isn&rsquo;t.
+    </p>
+    <p>
+      Fifteen new videos here are unscripted so far. The three bottom-of-funnel ones already have
+      finished scripts in the format playbook.
+    </p>
+  </footer>
+
+</div>
